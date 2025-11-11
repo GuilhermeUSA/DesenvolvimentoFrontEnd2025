@@ -1,0 +1,44 @@
+<h3>Cadastro Disciplina</h3>
+
+<form (ngSubmit)="adicionardisciplina()" #form="ngForm", Style="margin-top: auto;">
+
+<div>
+    <label >Nome:</label>
+     <input type="text" name="Nome" [(ngModel)]="novadisciplina.Nome" required>
+</div>
+
+<div>
+    <label >Professor:</label>
+    <input type="text" name="Professor" [(ngModel)]="novadisciplina.Professor" required>
+
+</div>
+
+<div>
+    <label >Curso:</label>
+    <input type="text" name="Curso" [(ngModel)]="novadisciplina.Curso" required>
+
+</div>
+
+<button type="submit" [disabled]="!form.valid">Adicionar!</button>
+
+</form>
+
+<table border="1" style="margin-top: 20px;">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Curso</th>
+      <th>Professor</th>
+    </tr>
+  </thead>
+  <tbody>
+
+ <tr *ngFor="let disc of disciplinas">
+
+      <td> {{disc.Nome}}</td>
+      <td> {{disc.Curso}} </td>
+      <td> {{disc.Professor}} </td>
+    </tr>
+    
+  </tbody>
+</table>
